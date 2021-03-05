@@ -139,3 +139,19 @@ camera:
     still_image_url: http://194.218.96.92/jpg/image.jpg
     stream_source: rtsp://194.218.96.92:554
 ```
+### Camera with authentication
+
+To access a camera that requires authentication for still images and streaming (HIK camera in my case).
+The configuration for authentication has to be with username and password keys for still image and url embedded for stream source.
+
+```yaml
+camera: 
+  - platform: generic
+    name: Auth Cam
+    still_image_url: http://192.168.1.100/ISAPI/Streaming/Channels/101/picture
+    stream_source: rtsp://[LOGIN]:[PASSWORD]@192.168.1.100:554/Streaming/Channels/102
+    verify_ssl: false
+    username: [LOGIN]
+    password: [PASSWORD]
+    authentication: digest
+```
